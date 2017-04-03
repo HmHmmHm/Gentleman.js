@@ -1,0 +1,22 @@
+{
+  "name": "gentleman.js",
+  "version": "1.0.0",
+  "description": "Improved Node JS Korea Bad Words Filter",
+  "main": "gentleman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HmHmmHm/Gentleman.js.git"
+  },
+  "author": "hmhmmhm <hmkuak@naver.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HmHmmHm/Gentleman.js/issues"
+  },
+  "homepage": "https://github.com/HmHmmHm/Gentleman.js#readme",
+  "dependencies": {
+    "iconv": "^2.2.1"
+  }
+}
