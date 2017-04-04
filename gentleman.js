@@ -64,17 +64,7 @@ class Gentleman {
 
     static find(message, needMultipleCheck, splitCheck) {
         var totalResult = [];
-        
-        //OTHER LANGUAGE BAD WORDS FIND ALGORITHM
-        for (var otherLangBadWordsIndex in softSearchWords){
-            let otherLangBadWord = softSearchWords[otherLangBadWordsIndex];
-            if(message.search(otherLangBadWord) != -1){
-                totalResult.push(otherLangBadWord);
-                if(!needMultipleCheck) return totalResult;
-            }
-        }
 
-        //KR BAD WORDS FIND ALGORITHM
         if (splitCheck === undefined) splitCheck = 15;
         var messages = (splitCheck != 0) ? Utils.lengthSplit(message, splitCheck) : [message];
 
@@ -99,7 +89,7 @@ class Gentleman {
             Gentleman.load();
         }
 
-        let unsafeMessage = message;
+        let unsafeMessage = message.toLowerCase();
         let foundedBadWords = [];
 
         for (let index in normalWords) {
@@ -107,6 +97,16 @@ class Gentleman {
             unsafeMessage = Utils.replaceAll(unsafeMessage, normalWords[index], '');
         }
 
+        //OTHER LANGUAGE BAD WORDS FIND ALGORITHM
+        for (var otherLangBadWordsIndex in softSearchWords){
+            let otherLangBadWord = softSearchWords[otherLangBadWordsIndex];
+            if(unsafeMessage.search(otherLangBadWord) != -1){
+                foundedBadWords.push(otherLangBadWord);
+                if(!needMultipleCheck) return foundedBadWords;
+            }
+        }
+
+        //KR BAD WORDS FIND ALGORITHM
         for (let index1 in badWords) {
             let badWord = badWords[index1];
 
